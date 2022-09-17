@@ -600,16 +600,16 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x0"); // 0
 
-        pchMessageStart[0] = 0x74; //t
-        pchMessageStart[1] = 0x72; //r
-        pchMessageStart[2] = 0x74; //t
-        pchMessageStart[3] = 0x6d; //m
-        nDefaultPort = 10227;
+        pchMessageStart[0] = 0x77; //t
+        pchMessageStart[1] = 0x77; //r
+        pchMessageStart[2] = 0x77; //t
+        pchMessageStart[3] = 0x67; //m
+        nDefaultPort = 10237;
         nPruneAfterHeight = 1000;
-        //FindMainNetGenesisBlock(1618814931,  0x20001fff, "test");
-        genesis = CreateGenesisBlock(1618814931, 1398, 0x20001fff, 4, 5000 * COIN);
+        //FindMainNetGenesisBlock(1663450135,  0x20001fff, "test");
+        genesis = CreateGenesisBlock(1663450135, 1123, 0x20001fff, 4, 5000 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x3c8321a56c52304c462f03f92f9e36677b57126501d77482feb763dcb59da91b"));
+        assert(consensus.hashGenesisBlock == uint256S("0x1a6aef3d4984e6aa90e5c7e5517e681083d698caf933034928eeb7de4bf0057e"));
         assert(genesis.hashMerkleRoot == uint256S("0x87a48bc22468acdd72ee540aab7c086a5bbcddc12b51c6ac925717a74c269453"));
 
         vFixedSeeds.clear();
@@ -617,11 +617,7 @@ public:
 
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.emplace_back("47.151.7.226", true);
-        vSeeds.emplace_back("62.171.153.224", true);
-        vSeeds.emplace_back("98.38.235.195", true);
-        vSeeds.emplace_back("ger1.raptoreum.com", true);
-        vSeeds.emplace_back("ny1.raptoreum.com", true);
+        vSeeds.emplace_back("47.151.14.191", true);
 
         // Testnet Raptoreum addresses start with 'r'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,123);
@@ -646,7 +642,7 @@ public:
 
 		consensus.nCollaterals = SmartnodeCollaterals(
 			{
-				{20000, 20000 * COIN}, {40000, 40000 * COIN}, {INT_MAX, 60000 * COIN}
+				{20000, 2000 * COIN}, {40000, 4000 * COIN}, {INT_MAX, 6000 * COIN}
 			},
 			{
 				{INT_MAX, 20}
@@ -663,7 +659,7 @@ public:
         fMineBlocksOnDemand = false;
         fAllowMultipleAddressesFromGroup = false;
         fAllowMultiplePorts = true;
-        miningRequiresPeers = true;
+        miningRequiresPeers = false;
 
         nPoolMinParticipants = 3;
         nPoolMaxParticipants = 5;
