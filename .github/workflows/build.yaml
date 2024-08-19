@@ -343,7 +343,17 @@ jobs:
 
       - name: Install Required Packages
         run: |
-          brew install --overwrite automake librsvg libnatpmp
+          rm /usr/local/bin/2to3
+          rm /usr/local/bin/2to3-3.12
+          rm /usr/local/bin/idle3
+          rm /usr/local/bin/idle3.12
+          rm /usr/local/bin/pydoc3
+          rm /usr/local/bin/pydoc3.12
+          rm /usr/local/bin/python3
+          rm /usr/local/bin/python3-config
+          rm /usr/local/bin/python3.12
+          rm /usr/local/bin/python3.12-config
+          brew install automake librsvg libnatpmp
           pip3 install ds_store mac_alias
           pip3 install -U pip setuptools
 
