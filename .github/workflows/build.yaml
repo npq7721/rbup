@@ -333,9 +333,9 @@ jobs:
           report_paths: "unit_test_results.xml"
 
   build-macos:
-    name: macOS 12 Build
+    name: macOS 13 Build
     needs: get-version
-    runs-on: macos-12
+    runs-on: macos-13
 
     steps:
       - name: Checkout
@@ -343,6 +343,7 @@ jobs:
 
       - name: Install Required Packages
         run: |
+          rm /usr/local/bin/2to3
           brew install automake libtool pkg-config librsvg libnatpmp python
           pip3 install ds_store mac_alias
           pip3 install -U pip setuptools
@@ -351,7 +352,7 @@ jobs:
         run: |
           echo "building with 8 threads"
           export FALLBACK_DOWNLOAD_PATH=https://pool.nowput.org/depends/
-          make -C depends -j8 HOST=x86_64-apple-darwin20.6.0
+          make -C depends -j8
 
       - name: Configure
         run: |
