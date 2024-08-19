@@ -343,8 +343,7 @@ jobs:
 
       - name: Install Required Packages
         run: |
-          rm /usr/local/bin/2to3-3.12
-          rm /usr/local/bin/2to3
+          brew uninstall libtool python
           brew install automake libtool pkg-config librsvg libnatpmp python
           pip3 install ds_store mac_alias
           pip3 install -U pip setuptools
