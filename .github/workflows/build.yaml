@@ -356,7 +356,7 @@ jobs:
       - name: Configure
         run: |
           ./autogen.sh
-          ./configure --prefix=`pwd`/depends/x86_64-apple-darwin21.6.0
+          ./configure --prefix=`pwd`/depends/x86_64-apple-darwin21.6.0 --enable-crash-hooks
 
       - name: Build Binaries
         run: |
