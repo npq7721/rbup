@@ -343,7 +343,7 @@ jobs:
 
       - name: Install Required Packages
         run: |
-          brew install automake pkg-config librsvg libnatpmp
+          brew install automake librsvg libnatpmp
           pip3 install ds_store mac_alias
           pip3 install -U pip setuptools
 
